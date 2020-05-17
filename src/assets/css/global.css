@@ -1,0 +1,34 @@
+html, body, #app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-width: 1366px;
+}
+.el-breadcrumb {
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+.el-card {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3) !important;
+}
+.el-table {
+    margin-top: 15px;
+    font-size: 12px;
+}
+.el-pagination {
+    margin-top: 15px;
+}
+/* 主体容器居中 */
+.body-center {
+    margin: 0 auto;
+    width: 90%;
+}
+/* 滚动条 */
+.el-scrollbar {
+    height: 100%;
+}
+.el-scrollbar__wrap {
+    overflow: scroll;
+    width: 110%;
+    height: 105%;
+}
