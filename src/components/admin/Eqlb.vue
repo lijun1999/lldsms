@@ -21,13 +21,17 @@
 </template>
 
 <style lang="less" scoped>
-.el-menu {
-  border: 0;
-  .el-menu-item:hover {
-    background-color: #fff;
+  .el-menu {
+    border: 0;
+    background: transparent !important;
+    border-right: 3px solid rgba(255, 255, 255, .3);
+    height: 100%;
+
+
+    .el-menu-item,
+    .el-menu-item .is-active,
+    .el-menu-item:hover {
+      background: transparent !important;
+    }
   }
-  .el-menu-item.is-active {
-    background-color: #fff;
-  }
-}
 </style>

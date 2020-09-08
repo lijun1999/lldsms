@@ -5,10 +5,16 @@
       <el-breadcrumb-item>设备管理</el-breadcrumb-item>
       <el-breadcrumb-item>设备列表</el-breadcrumb-item>
     </el-breadcrumb>
-    <el-card>
+    <div class="lj-card">
       <el-row :gutter="20">
         <el-col :span="7">
-          <el-input :placeholder="queryInfo.type == 0 ? '请输入设备编号' : '请输入设备名称'" v-model="queryInfo.query" clearable @clear="getEqList" class="input-with-select">
+          <el-input
+            :placeholder="queryInfo.type == 0 ? '请输入设备编号' : '请输入设备名称'"
+            v-model="queryInfo.query"
+            clearable
+            @clear="getEqList"
+            class="input-with-select"
+          >
             <el-select v-model="queryInfo.type" slot="prepend" placeholder="请选择">
               <el-option label="编号 " value="0"></el-option>
               <el-option label="名称 " value="2"></el-option>
@@ -23,12 +29,12 @@
       </el-row>
       <!-- 表格区域 -->
       <!-- 按编号名称的表格 -->
-      <el-table :data="eqList" border stripe v-if="tableType != 1">
+      <el-table :data="eqList" v-if="tableType != 1">
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column prop="eid" label="编号"></el-table-column>
         <el-table-column prop="ename" label="名称"></el-table-column>
         <!-- <el-table-column prop="num" label="数量"></el-table-column>
-        <el-table-column prop="snum" label="库存量"></el-table-column> -->
+        <el-table-column prop="snum" label="库存量"></el-table-column>-->
         <el-table-column prop="emanufacture" label="生产厂家"></el-table-column>
         <el-table-column prop="buydate" label="购买日期">
           <template slot-scope="scope">{{scope.row.buydate| dateFormat}}</template>
@@ -65,7 +71,7 @@
         </el-table-column>
       </el-table>
       <!-- 按综合的表格 -->
-      <el-table :data="eqList" border stripe v-if="tableType == 1">
+      <el-table :data="eqList" v-if="tableType == 1">
         <el-table-column type="index" label="#"></el-table-column>
         <el-table-column prop="ename" label="名称"></el-table-column>
         <el-table-column prop="num" label="数量"></el-table-column>
@@ -81,7 +87,7 @@
         layout="total, sizes, prev, pager, next, jumper"
         :total="total"
       ></el-pagination>
-    </el-card>
+    </div>
     <!-- t添加设备对话框 -->
     <el-dialog title="添加设备" :visible.sync="addDialogVisible" width="30%" @close="addDialogClosed">
       <!-- 内容主题区域 -->
@@ -98,15 +104,9 @@
 
         <el-form-item label="购买日期" prop="buydate">
           <!-- <el-input v-model="addForm.buydate" disabled></el-input> -->
-          <el-date-picker
-            v-model="addForm.buydate"
-            type="date"
-            placeholder="选择日期"
-            disabled
-            >
-          </el-date-picker>
+          <el-date-picker v-model="addForm.buydate" type="date" placeholder="选择日期" disabled></el-date-picker>
         </el-form-item>
-         <el-form-item label="状态" prop="state">
+        <el-form-item label="状态" prop="state">
           <el-input v-model="addForm.state" disabled></el-input>
         </el-form-item>
         <el-form-item label="位置" prop="address">
@@ -133,21 +133,15 @@
         </el-form-item>
         <el-form-item label="购买日期" prop="buydate">
           <!-- <el-input v-model="editForm.buydate" disabled></el-input> -->
-          <el-date-picker
-            v-model="editForm.buydate"
-            type="date"
-            placeholder="选择日期"
-            disabled
-            >
-          </el-date-picker>
+          <el-date-picker v-model="editForm.buydate" type="date" placeholder="选择日期" disabled></el-date-picker>
         </el-form-item>
-         <el-form-item label="状态" prop="state">
+        <el-form-item label="状态" prop="state">
           <el-select v-model="editForm.state" placeholder="请选择" style="width: 220px" disable>
             <el-option label="可借" value="可借"></el-option>
             <!-- <el-option label="借出" value="借出"></el-option> -->
             <el-option label="教室在用" value="教室在用"></el-option>
             <!-- <el-option label="待维修" value="待维修"></el-option>
-            <el-option label="报废" value="报废"></el-option> -->
+            <el-option label="报废" value="报废"></el-option>-->
           </el-select>
         </el-form-item>
 
@@ -170,10 +164,10 @@ export default {
     return {
       //获取设备列表的参数对象
       queryInfo: {
-        type: '0',
+        type: "0",
         query: "",
         pagenum: 1,
-        pagesize: 5
+        pagesize: 5,
       },
       eqList: [],
       total: 0,
@@ -182,25 +176,33 @@ export default {
         eid: "",
         ename: "",
         address: "",
-        state: '可借',
+        state: "可借",
         emanufacture: "",
-        buydate: new Date()
+        buydate: new Date(),
       },
       addFormRules: {
         eid: [
           { required: true, message: "请输入编号", trigger: "blur" },
-          { min: 3, max: 10, message: "长度在 3 到 10 个字符", trigger: "blur" }
+          {
+            min: 3,
+            max: 10,
+            message: "长度在 3 到 10 个字符",
+            trigger: "blur",
+          },
         ],
         ename: [
           { required: true, message: "请输入名称", trigger: "blur" },
-          { min: 3, max: 10, message: "长度在 3 到 10 个字符", trigger: "blur" }
+          {
+            min: 3,
+            max: 10,
+            message: "长度在 3 到 10 个字符",
+            trigger: "blur",
+          },
         ],
         emanufacture: [
-          { required: true, message: "请输入生产厂家", trigger: "blur" }
+          { required: true, message: "请输入生产厂家", trigger: "blur" },
         ],
-        address: [
-          { required: true, message: "请输入位置", trigger: "blur" }
-        ]
+        address: [{ required: true, message: "请输入位置", trigger: "blur" }],
       },
       //修改框显示与隐藏
       editDialogVisible: false,
@@ -208,34 +210,37 @@ export default {
       editFormRules: {
         ename: [
           { required: true, message: "请输入名称", trigger: "blur" },
-          { min: 3, max: 10, message: "长度在 3 到 10 个字符", trigger: "blur" }
+          {
+            min: 3,
+            max: 10,
+            message: "长度在 3 到 10 个字符",
+            trigger: "blur",
+          },
         ],
         emanufacture: [
-          { required: true, message: "请输入生产厂家", trigger: "blur" }
+          { required: true, message: "请输入生产厂家", trigger: "blur" },
         ],
-        address: [
-          { required: true, message: "请输入位置", trigger: "blur" }
-        ]
+        address: [{ required: true, message: "请输入位置", trigger: "blur" }],
       },
       setRoleDialogVisible: false,
       userInfo: {},
       rolelist: [],
       selectedRoleId: "",
       tableType: "0",
-      aid: null
+      aid: null,
     };
   },
   created() {
     this.getEqList();
   },
   mounted() {
-    this.aid = window.sessionStorage.getItem('aid')
+    this.aid = window.sessionStorage.getItem("aid");
   },
   methods: {
     //获取设备列表
     async getEqList() {
       const { data: res } = await this.$http.get("eqlist", {
-        params: this.queryInfo
+        params: this.queryInfo,
       });
       if (res.meta.status === 202) {
         this.eqList = [];
@@ -245,8 +250,8 @@ export default {
       if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg);
       }
-      console.log(res.data.eq)
-      this.tableType = res.data.type
+      console.log(res);
+      this.tableType = res.data.type;
       this.eqList = res.data.eq;
       this.total = res.data.total;
     },
@@ -265,7 +270,7 @@ export default {
     },
     addEq() {
       //检验表单 正确valid=true
-      this.$refs.addFormRef.validate(async valid => {
+      this.$refs.addFormRef.validate(async (valid) => {
         if (!valid) return;
         const { data: res } = await this.$http.post("addeq", this.addForm);
         if (res.meta.status !== 200) {
@@ -287,7 +292,7 @@ export default {
     //修改框表单预验证并提交
     editEqInfo() {
       // 表单预验证
-      this.$refs.editFormRef.validate(async valid => {
+      this.$refs.editFormRef.validate(async (valid) => {
         if (!valid) return;
         const { data: res } = await this.$http.put("editeq", this.editForm);
         if (res.meta.status !== 200) {
@@ -307,9 +312,9 @@ export default {
         {
           confirmButtonText: "确定",
           cancelButtonText: "取消",
-          type: "warning"
+          type: "warning",
         }
-      ).catch(err => {
+      ).catch((err) => {
         return err;
       });
       //如果设备确认删除，返回字符串 confirm 取消则返回字符串 cnacel
@@ -323,8 +328,8 @@ export default {
       this.$message.success("删除设备成功");
       this.getEqList();
     },
-    async repairEqById(eid,state) {
-      if (state === '报修' || state === '报废') {
+    async repairEqById(eid, state) {
+      if (state === "报修" || state === "报废") {
         return this.$message.error("此设备不可报修");
       }
       //弹窗提示
@@ -334,23 +339,26 @@ export default {
         {
           confirmButtonText: "确定",
           cancelButtonText: "取消",
-          type: "warning"
+          type: "warning",
         }
-      ).catch(err => {
+      ).catch((err) => {
         return err;
       });
       //如果设备确认删除，返回字符串 confirm 取消则返回字符串 cnacel
       if (confirmResult !== "confirm") {
         return this.$message.info("已取消报修");
       }
-      const { data: res } = await this.$http.post("repaireq", { eid: eid,aid: this.aid });
+      const { data: res } = await this.$http.post("repaireq", {
+        eid: eid,
+        aid: this.aid,
+      });
       if (res.meta.status !== 200) {
         return this.$message.error("设备报修失败");
       }
       this.$message.success("设备报修成功");
       this.getEqList();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -358,5 +366,4 @@ export default {
 .el-select {
   width: 80px;
 }
-
 </style>

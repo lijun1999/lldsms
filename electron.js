@@ -9,16 +9,29 @@ const Menu = electron.Menu
 Menu.setApplicationMenu(null)
 
 
+//串口
+const SerialPort = require('serialport');
+ 
+SerialPort.list().then(
+    ports => ports.forEach(console.log),
+    err => console.error(err)
+)
+
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
+    // width: 800,
+    // height: 600,
+    // webPreferences: {
+    //   preload: path.join(__dirname, 'preload.js')
+    // }
+    //默认全屏
+    // fullscreen: true
+    //默认最大化
+    show: false
   })
-
+  mainWindow.maximize()
+  mainWindow.show()
   // and load the index.html of the app.
   mainWindow.loadFile(`${__dirname}\\dist\\index.html`)//原文为mainWindow.loadFile('index.html')
 

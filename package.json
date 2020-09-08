@@ -7,8 +7,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-	  "electron_dev": "yarn run build && electron electron.js",
-	  "electron_build": "electron-packager ./dist/ --platform=win32 --arch=x64 --icon=./src/assets/favicon.ico --overwrite"
+    "electron_dev": "yarn run build && electron electron.js",
+    "electron_build": "electron-packager ./dist/ --platform=win32 --arch=x64 --icon=./src/assets/favicon.ico --overwrite"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -16,7 +16,14 @@
     "echarts": "^4.7.0",
     "element-ui": "^2.4.5",
     "moment": "^2.24.0",
+    "npm": "^6.14.5",
+    "nprogress": "^0.2.0",
+    "particles.js": "^2.0.0",
+    "serialport": "^9.0.0",
+    "to": "^0.2.9",
+    "update": "^0.7.4",
     "vue": "^2.6.11",
+    "vue-count-to": "^1.0.13",
     "vue-echarts": "^5.0.0-beta.0",
     "vue-router": "^3.1.5"
   },
@@ -30,6 +37,7 @@
     "babel-plugin-component": "^1.1.1",
     "electron": "^8.3.0",
     "electron-packager": "^14.2.1",
+    "electron-rebuild": "^1.11.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
