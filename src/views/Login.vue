@@ -43,7 +43,7 @@
 <script>
   import particlesJs from "particles.js";
   import particlesConfig from "../assets/json/login/particles";
-  import SIdentify from './components/sIdentify'
+  import SIdentify from '../components/sIdentify'
   export default {
     components: { SIdentify },
     data() {

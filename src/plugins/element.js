@@ -1,5 +1,46 @@
 import Vue from 'vue'
-import { CarouselItem, Carousel, PageHeader, Scrollbar, DatePicker, Divider, Backtop, MessageBox, Button, RadioGroup, TimelineItem, Timeline, Radio, Select, Option, Tag, Tree, Form, FormItem, Input, Message, Container, Dialog, Header, Pagination, Aside, Main, Menu, Submenu, MenuItem, Breadcrumb, BreadcrumbItem, Card, Row, Col, Table, Tooltip, TableColumn, Switch } from 'element-ui'
+import {
+  CarouselItem,
+  Carousel,
+  PageHeader,
+  Scrollbar,
+  DatePicker,
+  Divider,
+  Backtop,
+  MessageBox,
+  Button,
+  RadioGroup,
+  TimelineItem,
+  Timeline,
+  Radio,
+  Select,
+  Option,
+  Tag,
+  Tree,
+  Form,
+  FormItem,
+  Input,
+  Message,
+  Container,
+  Dialog,
+  Header,
+  Pagination,
+  Aside,
+  Main,
+  Menu,
+  Submenu,
+  MenuItem,
+  Breadcrumb,
+  BreadcrumbItem,
+  Card,
+  Row,
+  Col,
+  Table,
+  Tooltip,
+  TableColumn,
+  Switch
+} from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(Carousel)
 Vue.use(CarouselItem)
